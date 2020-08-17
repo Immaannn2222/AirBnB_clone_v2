@@ -22,7 +22,8 @@ printf %s "server {
         return 301 http://youtube.com/;
     }
     location /hbnb_static {
-    alias /data/web_static/current/;
+    alias /data/web_static/current;
+    index idex.html index.htm;
     
     }
 }" > /etc/nginx/sites-available/default
