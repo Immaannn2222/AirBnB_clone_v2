@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/', strict_slashes=False)
 def say_hi():
     """say hi"""
-    return 'Hello HBNB'
+    return 'Hello HBNB!'
 
 
 @app.route('/hbnb', strict_slashes=False)
@@ -19,10 +19,10 @@ def another_one():
 
 
 @app.route('/c/<text>', strict_slashes=False)
-def router():
+def C_fun(text):
     """third"""
     modify = text.replace("_", " ")
-    return 'C {}'.format(modify)
+    return 'C {%s}'.format(modify)
 
 
 if __name__ == '__main__':
