@@ -25,6 +25,13 @@ def c_fun(text):
     return 'C {}'.format(text)
 
 
+@app.route("/python/", strict_slashes=False)
+@app.route("/python/<text>", strict_slashes=False)
+def pyth_func(text='is cool'):
+    """fourth route"""
+    text = text.replace("_", " ")
+    return 'Python {}'.format(text)
+
 if __name__ == '__main__':
     """main"""
     app.run(host='0.0.0.0', port=5000)
