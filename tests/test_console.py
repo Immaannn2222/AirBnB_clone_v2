@@ -4,9 +4,11 @@ Fine it's working"""
 
 from console import HBNBCommand
 from unittest.mock import patch
-import os, sys
+import os
+import sys
 from io import StringIO
 from unittest import TestCase
+
 
 class TestConsole(TestCase):
     """test for console"""
@@ -18,15 +20,16 @@ class TestConsole(TestCase):
         """unitest"""
         try:
             os.remove('file.json')
-        except:
+        except EOFError:
             pass
+
     def testcreat(self):
         """unitest"""
         with patch('sys.stdout', new=StringIO()) as a:
             HBNBCommand().onecmd("create cheking")
         out = a.getvalue()[:-1]
         self.assertEqual(out, "** class doesn't exist **")
-    
+
     def testcre(self):
         """unitest"""
         with patch('sys.stdout', new=StringIO()) as a:
@@ -49,7 +52,6 @@ class TestConsole(TestCase):
         out = a.getvalue()[:-1]
         self.assertTrue("'name': 'Sfax'" in out)
 
-     
     def test(self):
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd('create Place nbr_zeb=2 price=5.5')
