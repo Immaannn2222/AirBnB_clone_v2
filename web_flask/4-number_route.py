@@ -33,6 +33,12 @@ def pyth_func(text='is cool'):
     return 'Python {}'.format(text)
 
 
+@app.route("/number/<int:n>", strict_slashes=False)
+def is_int(n):
+    """is it an integer"""
+    return '%d is a number' % n
+
+
 if __name__ == '__main__':
     """main"""
     app.run(host='0.0.0.0', port=5000)
